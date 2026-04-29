@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para mi amor 💖</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to top, #ff758c, #ff7eb3);
+    font-family: Arial;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+h1 {
+    margin-top: 60px;
+    font-size: 35px;
+}
+
+button {
+    padding: 15px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    background: white;
+    color: #ff4d6d;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+#mensaje {
+    margin-top: 30px;
+    font-size: 22px;
+    opacity: 0;
+    transition: 1s;
+}
+
+/* corazones */
+.corazon {
+    position: absolute;
+    font-size: 20px;
+    animation: flotar 5s linear infinite;
+}
+
+@keyframes flotar {
+    0% {
+        transform: translateY(100vh);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<h1>Para ti, mi amor 💖</h1>
+
+<p>Presiona el botón...</p>
+
+<button onclick="mostrar()">Ver mensaje 💌</button>
+
+<div id="mensaje">
+    <p>No es un gran regalo…</p>
+    <p>pero quería recordarte algo importante 💖</p>
+    <p><b>Eres lo mejor que me ha pasado 😍</b></p>
+    <p>Y cada día contigo vale la pena ❤️</p>
+</div>
+
+<audio id="musica" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function mostrar() {
+    let msg = document.getElementById("mensaje");
+    msg.style.opacity = 1;
+
+    document.getElementById("musica").play();
+
+    corazones();
+}
+
+function corazones() {
+    setInterval(() => {
+        let c = document.createElement("div");
+        c.classList.add("corazon");
+        c.innerText = "💖";
+
+        c.style.left = Math.random() * 100 + "vw";
+        c.style.fontSize = (Math.random() * 20 + 15) + "px";
+
+        document.body.appendChild(c);
+
+        setTimeout(() => {
+            c.remove();
+        }, 5000);
+    }, 250);
+}
+</script>
+
+</body>
+</html>
